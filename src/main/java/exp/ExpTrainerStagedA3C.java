@@ -113,6 +113,7 @@ public class ExpTrainerStagedA3C {
                             }
                             System.out.println("Overall MQ: " + getMQ(modules, model));
                             System.out.println("Standard Deviation from seven: " + getStandardDeviationFromSeven(modules));
+                            printModules(modules);
                             //should save or not
 
                             if (shouldSaveInBetweenNNs) {
@@ -161,6 +162,7 @@ public class ExpTrainerStagedA3C {
             }
             System.out.println("Overall MQ: " + getMQ(modules, model));
             System.out.println("Standard Deviation from seven: " + getStandardDeviationFromSeven(modules));
+            printModules(modules);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -255,5 +257,13 @@ public class ExpTrainerStagedA3C {
         }
         return Math.sqrt(sum / modules.size());
     }
+
+    public static void printModules(List<Module> modules) {
+        for (int i = 0; i < modules.size(); i++) {
+            System.out.println(modules.get(i).toString(i + 1));
+        }
+    }
+
+
 }
 
